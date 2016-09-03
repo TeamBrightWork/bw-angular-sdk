@@ -167,7 +167,7 @@ Let's assume we are working off the default BW generated manifest for a photo al
 For this example let's assume you have an e-commerce system with Order and LineItem models. You need to find all line items where the amount is 
 above $50 and the item is in a "pending" or "paid" status.  You want the results sorted first in decending order by date and then sorted in ascending order by line number. 
 ```
-    var query = $bw.Query()
+    var query = $bw.query()
         .greaterThan('amount', 50)
         .oneOf('status', ['pending', 'paid'])
         .descending('order_date')

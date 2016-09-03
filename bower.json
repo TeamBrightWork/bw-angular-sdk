@@ -1,0 +1,25 @@
+{
+  "name": "bw-js-sdk",
+  "description": "The BrightWork AngularJS SDK",
+  "main": "dist/index.js",
+  "authors": [
+    "Phil Taylor"
+  ],
+  "license": "ISC",
+  "keywords": [
+    "brightwork",
+    "javascript",
+    "sdk"
+  ],
+  "homepage": "https://github.com/TeamBrightWork/bw-angular-sdk",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.2.16"
+  }
+}

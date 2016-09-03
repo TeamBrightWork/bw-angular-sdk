@@ -1,0 +1,70 @@
+$icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/bootstrap/";
+// bower:scss
+@import "bootstrap-sass-official/assets/stylesheets/_bootstrap.scss";
+// endbower
+
+body {
+  padding-top: 50px;
+}
+.starter-template {
+  padding: 40px 15px;
+  text-align: center;
+}
+
+.logo{
+  display: inline-block;
+  margin: 20px 15px 0 15px;
+}
+
+#main-logo{ float: left; margin-right: 15px; }
+.brand-name{ color: #fff !important; }
+#navbar{ float: right; }
+#jquery-logo{ width: 122px; }
+#bootstrap-logo{ width: 54px; }
+#sass-logo{ width: 62px; }
+#yeoman-logo{ width: 75px; }
+#npm-logo{ width: 70px; }
+#grunt-logo{ width: 63px; }
+#bower-logo{ width: 63px; }
+#compass-logo{ width: 63px; }
+.cols-margin{ margin-top: 42px; }
+.gray-text{ color: #A5A5A5; }
+.docs-btn{
+  background-color: #BC24D9;
+  border-color: #8D1BA2;
+  width: 300px;
+  height: 72px;
+  font-size: 26px;
+  margin-top: 27px;
+  line-height: 2em;
+
+  &:hover, &:active, &:focus{
+    background-color: #8D1BA2 !important;
+    border-color: #8D1BA2 !important;
+  }
+}
+
+#angular-logo {
+  width: 50px;
+  height: 50px;
+}
+
+.main {
+  padding-bottom: 200px;
+}
+
+.panel-primary input {
+  color: black;
+}
+
+footer {
+  min-height: 25px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  &.alert {
+    margin-bottom: 0;
+    border-radius: 0;
+  }
+}

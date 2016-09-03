@@ -1,0 +1,70 @@
+<div class="starter-template">
+  <h1>Photo Album Demo</h1>
+  <h5>BrightWork + HTML + JQuery</h5>
+  <hr/>
+</div>
+
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h3>All Albums</h3>
+    <form class="form-inline" id="newAlbum">
+      <div class="form-group">
+        <label for="albumName">Name:</label>
+        <input type="text" id="albumName" ng-model="name" />
+      </div>
+      <button class="btn btn-danger btn-rounded" ng-click="add()"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> add</button>
+    </form>
+
+  </div>
+  <div class="panel-body">
+    <table class="table">
+      <thead>
+      <th>Id</th>
+      <th>Name</th>
+      <th>Created</th>
+      <th>Actions</th>
+      </thead>
+      <tbody id="albumContent">
+      <tr ng-repeat="album in albums">
+        <td>{{album.id}}</td>
+        <td>{{album.name}}</td>
+        <td>{{album.createdAt}}</td>
+        <td>
+          <button id="del-{{album.id}}" class="btn btn-danger btn-small btn-rounded" ng-click="delete(album)"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span> delete</button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+
+
+<div class="panel panel-warning">
+  <div class="panel-heading">
+    <h3>Search</h3>Albums that start with...
+    <form class="form-inline" id="newLetter">
+      <div class="form-group">
+        <label for="letter">Letter:</label>
+        <input type="text" id="letter" name="letter" ng-model="searchText" />
+      </div>
+      <button class="btn btn-primary btn-rounded" ng-click="search()"><span class="glyphicon glyphicon-search" aria-hidden="true"></span> Search</button>
+    </form>
+  </div>
+  <div class="panel-body">
+    <table class="table">
+      <thead>
+      <th>Id</th>
+      <th>Name</th>
+      <th>Created</th>
+      </thead>
+      <tbody id="albumByLetterContent">
+      <tr ng-repeat="album in results">
+        <td>{{album.id}}</td>
+        <td>{{album.name}}</td>
+        <td>{{album.createdAt}}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

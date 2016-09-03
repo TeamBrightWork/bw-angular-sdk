@@ -25,7 +25,6 @@ angular.module('photos')
     }
 
     $scope.delete = function(album) {
-      console.log('delete...', album);
       $bw.models.album.delete(album.id).then(function(){
         $scope.albums.splice($scope.albums.indexOf(album), 1);
         $scope.$apply();

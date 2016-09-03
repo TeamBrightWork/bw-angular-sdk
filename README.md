@@ -99,49 +99,66 @@ Let's assume we are working off the default BW generated manifest for a photo al
 
 ### Create a new album
 ```
-    bw.models.album.create({ name: "My Photo Album"}).then(function(newAlbum) {
-        console.log('A new album was created.');
-        console.log(newAlbum);
+    $scope.create = function() {
+        $bw.models.album.create({ name: $scope.name}).then(function(newAlbum){        
+                $scope.name = '';
+                $scope.albums.push(newAlbum);
+                $scope.$apply();
+        });
     });
+    
 ```
+*_assumes that $scope.name is bound to an input, you have a list on the screen $scope.albums that needs to be updated and that your calling create() on your controller_
 > See {@link Repository#create}
 
 ### Get an album from the server
 ```
-    bw.models.album.get(1).then(function(existingAlbum) {
-        console.log('Album with id: 1 is...');
-        console.log(newAlbum);
+    $scope.lookup = function() {
+        $bw.models.album.get($scope.id).then(function(existingAlbum) {
+            $scope.album = existingAlbum;
+            $scope.$apply();
+        });
     });
 ```
+*_assumes you have an input bound to $scope.id and are calling lookup() method of your controller_
 > See {@link Repository#get}
 
 ### Update an existing album
 *Assumes that you have have fetched an existing ablum using get and saved to existingAlbum variable.*
 ```    
-    bw.models.album.save(existingAlbum).then(function(savedAlbum) {
-        console.log('Album saved...');
-        console.log(savedAlbum);
+    $scope.save = function() {
+        $bw.models.album.save($scope.album).then(function(savedAlbum) {
+            $scope.album = savedAlbum;
+            $scope.$apply();
+        });
     });
 ```
+*_assumes you are editing $scope.album and calling save() method on your controller_
 > See {@link Repository#save}
 
 ### Delete an existing album
 ```
-    bw.models.album.delete(1).then(function() {
-        console.log('Album 1 has been deleted');
-    });
+    $scope.delete = function(album) {
+      $bw.models.album.delete(album.id).then(function(){
+        $scope.albums.splice($scope.albums.indexOf(album), 1);
+        $scope.$apply();
+      });
+    }
 ```
+*_assumes your passing an album to your controller delete() method_
 > See {@link Repository#delete}
 
 ### Search for an album
-```
-    var query = BrightWork.Query().equalTo('name', 'My Photo Album');
-        
-    console.log('searching for all albums named "My Photo Album"...');
-    bw.models.album.find(query).then(function(albums) {
-        console.log('...results', albums);
+```    
+    $scope.search = function(album) {
+        var query = $bw.query().equalTo('name', 'My Photo Album');
+        $bw.models.album.find(query).then(function(albums) {
+            $scope.results = albums;
+            $scope.$apply();
+        });
     });
 ```
+*_assumes that you have a search box bound to $scope.name, a result list bound to $scope.results and you call search() on your controller_
 > See <br/>
 {@link Repository#find} <br/>
 {@link Query}
@@ -150,13 +167,13 @@ Let's assume we are working off the default BW generated manifest for a photo al
 For this example let's assume you have an e-commerce system with Order and LineItem models. You need to find all line items where the amount is 
 above $50 and the item is in a "pending" or "paid" status.  You want the results sorted first in decending order by date and then sorted in ascending order by line number. 
 ```
-    var query = BrightWork.Query()
+    var query = $bw.Query()
         .greaterThan('amount', 50)
         .oneOf('status', ['pending', 'paid'])
         .descending('order_date')
         .ascending('line_number');
                
-    bw.models.lineitem.find(query).then(function(items) {
+    $bw.models.lineitem.find(query).then(function(items) {
         console.log('items found...', items);
     });
 

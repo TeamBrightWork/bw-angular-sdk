@@ -35,9 +35,7 @@ angular.module('brightwork').provider('$bw', function () {
                     return _self;
                 });
             } else {
-                return this.$q.fcall(function () {
-                    return _self;
-                });
+                return this.$q.resolve(_self);
             }
         },
 

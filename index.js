@@ -5,7 +5,9 @@ angular.module('brightwork').provider('$bw', function () {
     console.log('loading brightwork SDK...');
 
     var $apiKey,
-        $appName;
+        $appName,
+        $apiUrl,
+        $appUrl;
 
     this.apiKey = function (apiKey) {
         if (!apiKey) {
@@ -21,6 +23,20 @@ angular.module('brightwork').provider('$bw', function () {
         $appName = appName;
     };
 
+    this.apiUrl = function (apiUrl) {
+        if (!apiUrl) {
+            return $apiUrl;
+        }
+        $apiUrl = apiUrl;
+    };
+
+    this.appUrl = function (appUrl) {
+        if (!appUrl) {
+            return $appUrl;
+        }
+        $appUrl = appUrl;
+    };
+
     var bwAngularSDK = function bwAngularSDK($q) {
         this._sdk = null;
         this.$q = $q;
@@ -30,7 +46,7 @@ angular.module('brightwork').provider('$bw', function () {
         init() {
             var _self = this;
             if (!this._sdk) {
-                return BrightWork.initialize($apiKey, $appName).then(function(sdk){
+                return BrightWork.initialize($apiKey, $appName, $apiUrl, $appUrl).then(function(sdk){
                     _self._sdk = sdk;
                     return _self;
                 });

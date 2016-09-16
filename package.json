@@ -1,6 +1,6 @@
 {
   "name": "bw-angular-sdk",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "The BrightWork AngularJS SDK",
   "main": "index.js",
   "scripts": {},

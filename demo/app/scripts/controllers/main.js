@@ -11,6 +11,8 @@ angular.module('photos')
   .controller('MainCtrl', ['$scope', '$bw', '$q', '$http', function ($scope, $bw, $q, $http) {
     $scope.name = '';
 
+    console.log('***BW***', $bw);
+
     $bw.models.album.find().then(function(albums){
       $scope.albums = albums;
       $scope.$apply();

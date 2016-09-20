@@ -2,11 +2,8 @@ module.exports = function (grunt) {
     grunt.initConfig({
         browserify: {
             dist: {
-                src: ["./*.js"],
-                dest: "dist/index.js",
-                options: {
-                    noParse: ["./node_modules/bw-js-sdk/dist/index.js"]
-                }
+                src: ["./index.js"],
+                dest: "dist/index.js"
             }
         },
         watch: {

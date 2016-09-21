@@ -1,10 +1,11 @@
 {
   "name": "bw-angular-sdk",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "The BrightWork AngularJS SDK",
   "main": "index.js",
   "scripts": {},
   "devDependencies": {
+    "babelify": "~6.1.0",
     "grunt": "^0.4.5",
     "grunt-browserify": "~3.8.0",
     "grunt-contrib-concat": "^1.0.1",

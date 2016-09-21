@@ -3,7 +3,13 @@ module.exports = function (grunt) {
         browserify: {
             dist: {
                 src: ["./index.js"],
-                dest: "dist/index.js"
+                dest: "dist/index.js",
+                options: {
+                    transform: [
+                        ["babelify", {
+                            loose: "all"
+                        }]
+                    ]}
             }
         },
         watch: {

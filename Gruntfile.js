@@ -18,15 +18,11 @@ module.exports = function (grunt) {
                 tasks: ["browserify"]
             }
         },
-        jsdoc : {
-            dist : {
-                src: ['*.js', 'README.md'],
-                options: {
-                    destination : 'docs',
-                    configure: './.jsdoc.json',
-                    template: './template'
-                }
-            }
+        copy: {
+            docs: {
+                src: 'README.md',
+                dest: 'docs/GettingStarted.md'
+            },
         }
     });
 
@@ -34,6 +30,8 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks("grunt-contrib-watch");
     grunt.loadNpmTasks('grunt-jsdoc');
     //grunt.loadNpmTasks("grunt-contrib-concat");
+    grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.registerTask("default", ["watch"]);
-    grunt.registerTask("build", ["browserify"]);
+    grunt.registerTask("docs", ["copy:docs"]);
+    grunt.registerTask("build", ["browserify", "docs"]);
 };

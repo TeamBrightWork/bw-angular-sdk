@@ -10,10 +10,7 @@
     "grunt-browserify": "~3.8.0",
     "grunt-contrib-concat": "^1.0.1",
     "grunt-contrib-watch": "^0.6.1",
-    "grunt-jsdoc": "^2.1.0",
-    "ink-docstrap": "^1.2.1",
-    "jsdoc": "^3.4.0",
-    "minami": "^1.1.1",
+    "grunt-contrib-copy": "^1.0.0",
     "mocha": "^3.0.2"
   },
   "author": "Phil Taylor",

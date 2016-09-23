@@ -21,6 +21,6 @@
   ],
   "dependencies": {
     "angular": "~1.2.16",
-    "bw-js-sdk": "^0.0.6"
+    "bw-js-sdk": "~0.0.7"
   }
 }

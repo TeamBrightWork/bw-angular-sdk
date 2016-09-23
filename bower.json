@@ -1,5 +1,5 @@
 {
-  "name": "bw-js-sdk",
+  "name": "bw-angular-sdk",
   "description": "The BrightWork AngularJS SDK",
   "main": "dist/index.js",
   "authors": [

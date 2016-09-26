@@ -15,10 +15,10 @@ Our AngularJS SDK accelerates the time it takes to integrate your backend API wi
 ## Connecting to your API
 
 ### Add the script tags
-Make sure you have both the BrightWork JS & AngularJS SDK tags in your index page.
+Make sure you have both the BrightWork JS & AngularJS SDK script tags in your index page with the following sources.
 ```html
-<script src="bower_components/bw-js-sdk/dist/index.js"></script>
-<script src="bower_components/bw-andular-sdk/dist/index.js"></script>
+src="bower_components/bw-js-sdk/dist/index.js"
+src="bower_components/bw-andular-sdk/dist/index.js"
 ```
 
 ### Configure the SDK
